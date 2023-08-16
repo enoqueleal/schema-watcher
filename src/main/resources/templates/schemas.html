@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Schema version</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/superhero/bootstrap.css">
+</head>
+<body>
+<div class="container">
+
+    <h1>Schemas Changed</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">VERSION</th>
+            <th scope="col">SOURCE</th>
+            <th scope="col">DETAIL TYPE</th>
+            <th scope="col">CREATE_TIME</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="schema: ${schemas}">
+            <td><a th:href="@{'/schema-detail?version=' + ${schema.version}}"><span th:text="${schema.version}"/></a></td>
+            <td th:text="${schema.source}"/>
+            <td th:text="${schema.detailType}"/>
+            <td th:text="${schema.time}"/>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

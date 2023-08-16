@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Schema version</title>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/superhero/bootstrap.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="row clearfix">
+        <div class="col-md-6 column">
+            <h3 class="text-center">Old schema version</h3>
+            <b>Version: </b><span th:text="${schemaVersion.oldSchemaVersion}"/>
+            <br>
+            <pre id="left"><span th:text="${schemaVersion.oldSchema}" th:remove="tag"></span></pre>
+        </div>
+        <div class="col-md-6 column">
+            <h3 class="text-center">New schema version</h3>
+            <b>Version: </b><span th:text="${schemaVersion.newSchemaVersion}"/>
+            <br>
+            <pre id="right"><span th:text="${schemaVersion.newSchema}" th:remove="tag"></span></pre>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="jdd.js"></script>
+<script>
+    leftBlockId = $('#left').attr('id');
+    rightBlockId = $('#right').attr('id');
+    $(document).jdd(leftBlockId.replaceAll('&quot;', '"'), rightBlockId).replaceAll('&quot;', '"');
+</script>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+</body>
+</html>
